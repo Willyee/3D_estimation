@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="driver_mpu9250" type="driver_mpu9250_rpi" name="driver_mpu9250">
+    <rosparam file="$(find attitude_estimation)/config/config.yaml" command="load"/>
+  </node>
+</launch>
