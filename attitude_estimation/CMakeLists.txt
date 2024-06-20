@@ -10,9 +10,29 @@ project(attitude_estimation)
 find_package(catkin REQUIRED COMPONENTS
   driver_mpu9250
   rospy
+  std_msgs
   sensor_msgs
+  sensor_msgs_ext
+  geometry_msgs
+  message_generation
 )
 
+add_message_files(
+  FILES
+  ImuData.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  sensor_msgs
+  sensor_msgs_ext
+  geometry_msgs
+)
+
+catkin_package(
+  CATKIN_DEPENDS message_runtime std_msgs sensor_msgs sensor_msgs_ext geometry_msgs
+)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
